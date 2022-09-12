@@ -20,33 +20,19 @@ buttons.forEach((button) => {
     });
 });
 
-
+// Create html to show player/computer choices on screen
 let playerScreenChoice = document.getElementById('playerScreenChoice');
 let playerImg = document.createElement('img');
 let computerScreenChoice = document.getElementById('computerScreenChoice');
 let computerImg = document.createElement('img');
 function displayChoices(playerChoice, computerChoice) {
-    playerImg.src = `./styles/${playerChoice}.png`;
-    playerScreenChoice.appendChild(playerImg);
-    computerImg.src = `./styles/${computerChoice}.png`;
-    computerScreenChoice.appendChild(computerImg);
-
-
+    if (playerWins < 5 && computerWins <5) {
+        playerImg.src = `./styles/${playerChoice}.png`;
+        playerScreenChoice.appendChild(playerImg);
+        computerImg.src = `./styles/${computerChoice}.png`;
+        computerScreenChoice.appendChild(computerImg);
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // Gets computer choice
@@ -107,12 +93,28 @@ function displayResult(result, playerWins, computerWins){
             results.appendChild(pResults);
         }
     } else { 
+        playAgain();  
         if (playerWins === 5){
-            result = 'You win. Do you want to play again?';            
+            result = 'Awesome! You win :)';          
         } else {
-            result = 'You Lose. Do you want to play again?';
+            result = 'Oh no! you lose. Maybe next time';
         }
         pResults.textContent = result;
         results.replaceChild(results.appendChild(pResults), results.childNodes[0]);
     }
+}
+
+let playAgainButton = document.getElementById('playAgain');
+function playAgain(){
+    playAgainButton.style['display'] = 'block';
+    playAgainButton.addEventListener('click', () =>{
+        playerWins = 0;
+        computerWins = 0;
+        displayScores(playerWins, computerWins);
+        playAgainButton.style['display'] = 'none';
+        results.removeChild(results.childNodes[0]);
+        computerScreenChoice.removeChild(computerScreenChoice.childNodes[0]);
+        playerScreenChoice.removeChild(playerScreenChoice.childNodes[0]);
+    })
+    
 }
