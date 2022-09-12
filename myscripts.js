@@ -56,9 +56,10 @@ function checkRound(playerChoice, computerChoice){
 
 // display scores
 function displayScores(playerWins, computerWins){
-    pPlayerScores.textContent = playerWins;
+    pPlayerScores.textContent = `Player scores: ${playerWins}`;
     playerDivWins.appendChild(pPlayerScores);
-    pComputerScores.textContent = computerWins;
+    pComputerScores.textContent= `Computer scores: ${computerWins}`;
+
     computerDivWins.appendChild(pComputerScores);
 }
 
