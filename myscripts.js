@@ -13,11 +13,41 @@ buttons.forEach((button) => {
     button.addEventListener('click', () => {
         let playerChoice = button.id;
         let computerChoice = getComputerChoice();
+        displayChoices(playerChoice, computerChoice);
         let result = checkRound(playerChoice, computerChoice);
         displayResult(result, playerWins, computerWins);
         //gameEnds(playerWins, computerWins)
     });
 });
+
+
+let playerScreenChoice = document.getElementById('playerScreenChoice');
+let playerImg = document.createElement('img');
+let computerScreenChoice = document.getElementById('computerScreenChoice');
+let computerImg = document.createElement('img');
+function displayChoices(playerChoice, computerChoice) {
+    playerImg.src = `./styles/${playerChoice}.png`;
+    playerScreenChoice.appendChild(playerImg);
+    computerImg.src = `./styles/${computerChoice}.png`;
+    computerScreenChoice.appendChild(computerImg);
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Gets computer choice
 function getComputerChoice(){
