@@ -1,0 +1,18 @@
+body{
+    padding: 20px 400px;
+}
+.scores{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+#playerDivWins{
+    background-color: aqua;
+    flex: 1;
+}
+
+#computerDivWins{
+    background-color: brown;
+    flex: 1;
+}
