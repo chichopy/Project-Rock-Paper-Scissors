@@ -1,0 +1,47 @@
+body{
+    padding: 20px 400px;
+}
+.scores{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+#playerDivWins{
+    background-color: aqua;
+    flex: 1;
+}
+
+#computerDivWins{
+    background-color: brown;
+    flex: 1;
+}
+
+.images{
+    display: flex;
+    justify-content: space-between;
+}
+
+.image-wrapper{
+    width: 300px;
+    height: auto;
+}
+
+.image-wrapper img{
+    width: 100%;
+    border-radius: 5px;
+}
+
+.outer-screen{
+    display: flex;
+    justify-content: center;
+}
+
+.screen{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    background-color: black;
+    width: 80%;
+    height: 400px;
+}
