@@ -1,30 +1,24 @@
 .askPlayer{
     display: flex;
     justify-content: center;
-    margin-top: 10px;
+    margin: 10px 0;
     font-family: 'Segoe UI', Tahoma, 'Geneva', Verdana, sans-serif;
     font-weight: 500;
+    height: 33px;
     font-size: larger;
 }
 
-.askPlayer p{
+#askToChoose{
     font-family: 'Segoe UI', Tahoma, 'Geneva', Verdana, sans-serif;
     font-weight: 500;
-    font-size: larger;
+    font-size: 25px;
+    height: 33px;
+    margin: 0;
 }
 
 body{
-    padding: 20px 400px;
+    padding: 5px 400px;
     background-color: #F0EFEE;
-    text-align: center;
-    font-family: 'Segoe UI', Tahoma, 'Geneva', Verdana, sans-serif;
-    font-weight: 500;
-    font-size: larger;
-}
-body p{
-    font-family: 'Segoe UI', Tahoma, 'Geneva', Verdana, sans-serif;
-    font-weight: 500;
-    font-size: larger;
 }
 
 #computerDivWins{
@@ -38,13 +32,21 @@ body p{
     font-size: larger;
 }
 
+.horizontalSeparator{
+    height: 1px;
+    width: 98%;
+    background-color: #F0EFEE;
+}
+
 .images{
     display: flex;
-    justify-content: space-between;
+    width: 80%;
+    justify-content: center;
+    gap: 1rem;
 }
 
 .image-wrapper{
-    width: 300px;
+    width: 270px;
     height: auto;
 }
 
@@ -65,6 +67,7 @@ body p{
 
 .player, .computer{
     display: flex;
+    max-width: 400;
     flex: 1;
     flex-direction: column;
     align-items: center;
@@ -88,10 +91,17 @@ body p{
     font-size: larger;
 }
 
+#playerScreenChoice, #computerScreenChoice{
+    display: flex;
+    flex: 1;
+    align-items: center;
+}
+
 #results{
     color:#F0EFEE;
-    background-color: black;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 80%;
     height: 50px;
 }
@@ -100,6 +110,7 @@ body p{
     font-family: 'Segoe UI', Tahoma, 'Geneva', Verdana, sans-serif;
     font-weight: 500;
     font-size: larger;
+    margin: 0;
 }
 
 .screen{
@@ -112,21 +123,23 @@ body p{
     height: 400px;
 }
 
+.totalScreen{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title{
+    margin: 0 0 20px 0;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, 'Geneva', Verdana, sans-serif;
+    font-weight: 500;
+    font-size: 25px;
+}
+
 
 .verticalSeparator{
     width: 1px;
     height: 100%;
     background-color: #F0EFEE;
-}
-
-.horizontalSeparator{
-    height: 1px;
-    width: 98%;
-    background-color: #F0EFEE;
-}
-
-.totalScreen{
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }

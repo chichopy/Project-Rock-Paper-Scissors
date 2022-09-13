@@ -105,7 +105,7 @@ function displayResult(result, playerWins, computerWins){
         if (playerWins === 5){
             result = 'Awesome! You win :)';          
         } else {
-            result = 'Oh no! you lose. Maybe next time';
+            result = 'Oh no! You lose. Maybe next time';
         }
         pResults.textContent = result;
         results.replaceChild(results.appendChild(pResults), results.childNodes[0]);
@@ -119,6 +119,7 @@ function playAgain(){
         playerWins = 0;
         computerWins = 0;
         displayScores(playerWins, computerWins);
+        askToChoose.style['display'] = 'block';
         playAgainButton.style['display'] = 'none';
         if (results.hasChildNodes() && computerScreenChoice.hasChildNodes() && playerScreenChoice.hasChildNodes()) {
             results.removeChild(results.children[0]);
