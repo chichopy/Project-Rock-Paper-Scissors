@@ -1,13 +1,12 @@
 // Create html elements and initialized them
-let playerDivWins = document.getElementById('playerDivWins');
 let pPlayerScores = document.createElement('p');
 let playerWins = 0;
-let computerDivWins = document.getElementById('computerDivWins');
 let pComputerScores = document.createElement('p');
 let computerWins = 0;
+
 displayScores(playerWins, computerWins)
 
-// Gets player choice
+
 const buttons = document.querySelectorAll('.RPS');
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
@@ -16,16 +15,22 @@ buttons.forEach((button) => {
         displayChoices(playerChoice, computerChoice);
         let result = checkRound(playerChoice, computerChoice);
         displayResult(result, playerWins, computerWins);
-        //gameEnds(playerWins, computerWins)
     });
 });
 
-// Create html to show player/computer choices on screen
+
 let playerScreenChoice = document.getElementById('playerScreenChoice');
-let playerImg = document.createElement('img');
 let computerScreenChoice = document.getElementById('computerScreenChoice');
-let computerImg = document.createElement('img');
 function displayChoices(playerChoice, computerChoice) {
+    // Create html element to show player/computer choices on screen
+    let playerImg = document.createElement('img');
+    let computerImg = document.createElement('img');
+    
+    if(playerScreenChoice.hasChildNodes() && playerWins < 5 && computerWins <5){
+        playerScreenChoice.removeChild(playerScreenChoice.childNodes[0])
+        computerScreenChoice.removeChild(computerScreenChoice.childNodes[0])
+    }
+
     if (playerWins < 5 && computerWins <5) {
         playerImg.src = `./styles/${playerChoice}.png`;
         playerScreenChoice.appendChild(playerImg);
@@ -35,7 +40,6 @@ function displayChoices(playerChoice, computerChoice) {
 }
 
 
-// Gets computer choice
 function getComputerChoice(){
     let Choice = Math.floor(Math.random() * 3);
     switch (Choice) {
@@ -48,10 +52,9 @@ function getComputerChoice(){
     }
 }
 
-// Checks result of round
+
 function checkRound(playerChoice, computerChoice){
     let resultRound = null;
-    // Checks player's and computer's choices
     if (playerWins < 5 && computerWins <5) {
         if (playerChoice === computerChoice){
             resultRound = 'It is a draw!!'
@@ -70,23 +73,17 @@ function checkRound(playerChoice, computerChoice){
     return resultRound;
 }
 
-// display scores
+
 function displayScores(playerWins, computerWins){
+    let playerDivWins = document.getElementById('playerDivWins');
     pPlayerScores.textContent = `Player scores: ${playerWins}`;
     playerDivWins.appendChild(pPlayerScores);
     pComputerScores.textContent= `Computer scores: ${computerWins}`;
-
+    let computerDivWins = document.getElementById('computerDivWins');
     computerDivWins.appendChild(pComputerScores);
 }
 
 
-
-
-
-let askToChoose = document.getElementById('askToChoose'); 
-
-
-// Displays results
 function displayResult(result, playerWins, computerWins){
     // Displays tiny window with the result
     let results = document.getElementById('results');
@@ -100,6 +97,7 @@ function displayResult(result, playerWins, computerWins){
             results.appendChild(pResults);
         }
     } else {
+        let askToChoose = document.getElementById('askToChoose'); 
         askToChoose.style['display'] = 'none';
         playAgain();  
         if (playerWins === 5){
@@ -111,6 +109,7 @@ function displayResult(result, playerWins, computerWins){
         results.replaceChild(results.appendChild(pResults), results.childNodes[0]);
     }
 }
+
 
 let playAgainButton = document.getElementById('playAgain');
 function playAgain(){
@@ -126,7 +125,5 @@ function playAgain(){
             computerScreenChoice.removeChild(computerScreenChoice.childNodes[0]);
             playerScreenChoice.removeChild(playerScreenChoice.childNodes[0]);
           }
-
-    })
-    
+    }) 
 }
