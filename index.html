@@ -11,22 +11,25 @@
 </head>
 <body>
     <!--outer-screen centers-->
-    <div class="outer-screen">
-        <!--screen divides in three parts, player, separator and computer-->
-        <div class="screen">
-            <div class="player">
-                <div id="playerDivWins"></div>
-                <div id="playerScreenChoice" class="image-wrapper"></div>
+    <div class="totalScreen">
+        <div class="outer-screen">
+            <!--screen divides in three parts, player, separator and computer-->
+            <div class="screen">
+                <div class="player">
+                    <div id="playerDivWins"></div>
+                    <div id="playerScreenChoice" class="image-wrapper"></div>
+                </div>
+                <div class="verticalSeparator"></div>
+                <div class="computer">
+                    <div id="computerDivWins"></div>
+                    <div id="computerScreenChoice" class="image-wrapper"></div>
+                </div>
             </div>
-            <div class="separator"></div>
-            <div class="computer">
-                <div id="computerDivWins"></div>
-                <div id="computerScreenChoice" class="image-wrapper"></div>
-            </div>
+            <div class="horizontalSeparator"></div>
+            <div id="results"></div>
         </div>
     </div>
 
-    <div id="results"></div>
 
     <div class="images">
         <div class="image-wrapper">

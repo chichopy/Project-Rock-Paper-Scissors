@@ -112,9 +112,12 @@ function playAgain(){
         computerWins = 0;
         displayScores(playerWins, computerWins);
         playAgainButton.style['display'] = 'none';
-        results.removeChild(results.childNodes[0]);
-        computerScreenChoice.removeChild(computerScreenChoice.childNodes[0]);
-        playerScreenChoice.removeChild(playerScreenChoice.childNodes[0]);
+        if (results.hasChildNodes() && computerScreenChoice.hasChildNodes() && playerScreenChoice.hasChildNodes()) {
+            results.removeChild(results.children[0]);
+            computerScreenChoice.removeChild(computerScreenChoice.childNodes[0]);
+            playerScreenChoice.removeChild(playerScreenChoice.childNodes[0]);
+        }
+
     })
     
 }
