@@ -79,6 +79,13 @@ function displayScores(playerWins, computerWins){
     computerDivWins.appendChild(pComputerScores);
 }
 
+
+
+
+
+let askToChoose = document.getElementById('askToChoose'); 
+
+
 // Displays results
 function displayResult(result, playerWins, computerWins){
     // Displays tiny window with the result
@@ -92,7 +99,8 @@ function displayResult(result, playerWins, computerWins){
         } else{
             results.appendChild(pResults);
         }
-    } else { 
+    } else {
+        askToChoose.style['display'] = 'none';
         playAgain();  
         if (playerWins === 5){
             result = 'Awesome! You win :)';          
@@ -116,7 +124,7 @@ function playAgain(){
             results.removeChild(results.children[0]);
             computerScreenChoice.removeChild(computerScreenChoice.childNodes[0]);
             playerScreenChoice.removeChild(playerScreenChoice.childNodes[0]);
-        }
+          }
 
     })
     
