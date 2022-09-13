@@ -4,7 +4,7 @@ let playerWins = 0;
 let pComputerScores = document.createElement('p');
 let computerWins = 0;
 
-displayScores(playerWins, computerWins)
+displayScores(playerWins, computerWins);
 
 
 const buttons = document.querySelectorAll('.RPS');
@@ -26,12 +26,12 @@ function displayChoices(playerChoice, computerChoice) {
     let playerImg = document.createElement('img');
     let computerImg = document.createElement('img');
     
-    if(playerScreenChoice.hasChildNodes() && playerWins < 5 && computerWins <5){
-        playerScreenChoice.removeChild(playerScreenChoice.childNodes[0])
-        computerScreenChoice.removeChild(computerScreenChoice.childNodes[0])
+    if(playerScreenChoice.hasChildNodes() && playerWins < 5 && computerWins < 5){
+        playerScreenChoice.removeChild(playerScreenChoice.childNodes[0]);
+        computerScreenChoice.removeChild(computerScreenChoice.childNodes[0]);
     }
 
-    if (playerWins < 5 && computerWins <5) {
+    if (playerWins < 5 && computerWins < 5) {
         playerImg.src = `./styles/${playerChoice}.png`;
         playerScreenChoice.appendChild(playerImg);
         computerImg.src = `./styles/${computerChoice}.png`;
@@ -42,7 +42,7 @@ function displayChoices(playerChoice, computerChoice) {
 
 function getComputerChoice(){
     let Choice = Math.floor(Math.random() * 3);
-    switch (Choice) {
+    switch (Choice){
         case 0:
             return (Choice = 'Rock');
         case 1:
@@ -55,9 +55,9 @@ function getComputerChoice(){
 
 function checkRound(playerChoice, computerChoice){
     let resultRound = null;
-    if (playerWins < 5 && computerWins <5) {
+    if (playerWins < 5 && computerWins < 5) {
         if (playerChoice === computerChoice){
-            resultRound = 'It is a draw!!'
+            resultRound = 'It is a draw!!';
         } else if ((playerChoice === 'Paper' && computerChoice === 'Rock') || (playerChoice === 'Rock' && computerChoice === 'Scissors') ||
                     (playerChoice === 'Scissors' && computerChoice === 'Paper')){
             playerWins += 1;
@@ -85,22 +85,21 @@ function displayScores(playerWins, computerWins){
 
 
 function displayResult(result, playerWins, computerWins){
-    // Displays tiny window with the result
     let results = document.getElementById('results');
     let pResults = document.createElement('p');
     pResults.textContent = result;
     // Updates the result every time the player press a button
-    if (playerWins < 5 && computerWins <5) {
+    if (playerWins < 5 && computerWins < 5) {
         if (result.length) {
             results.replaceChild(results.appendChild(pResults), results.childNodes[0]);
-        } else{
+        } else {
             results.appendChild(pResults);
         }
     } else {
         let askToChoose = document.getElementById('askToChoose'); 
         askToChoose.style['display'] = 'none';
         playAgain();  
-        if (playerWins === 5){
+        if (playerWins === 5) {
             result = 'Awesome! You win :)';          
         } else {
             result = 'Oh no! You lose. Maybe next time';
@@ -124,6 +123,6 @@ function playAgain(){
             results.removeChild(results.children[0]);
             computerScreenChoice.removeChild(computerScreenChoice.childNodes[0]);
             playerScreenChoice.removeChild(playerScreenChoice.childNodes[0]);
-          }
+        }
     }) 
 }
